@@ -1,7 +1,22 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString(),
+    })
+      .then(() => setIsSubmitted(true))
+      .catch((error) => alert(error));
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -25,10 +40,13 @@ const Contact = () => {
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        onSubmit={() => setIsSubmitted(true)}
+        onSubmit={handleSubmit}
         className="flex flex-col gap-4 w-full max-w-md"
       >
+        {/* Required hidden input for Netlify */}
         <input type="hidden" name="form-name" value="contact" />
+
+        {/* Honeypot field for bots */}
         <p className="hidden">
           <label>
             Don’t fill this out if you’re human:
@@ -36,7 +54,7 @@ const Contact = () => {
           </label>
         </p>
 
-        <label className="text-white">
+        <label className="text-white w-full">
           Name:
           <input
             type="text"
@@ -46,7 +64,7 @@ const Contact = () => {
           />
         </label>
 
-        <label className="text-white">
+        <label className="text-white w-full">
           Email:
           <input
             type="email"
@@ -56,7 +74,7 @@ const Contact = () => {
           />
         </label>
 
-        <label className="text-white">
+        <label className="text-white w-full">
           Message:
           <textarea
             name="message"
