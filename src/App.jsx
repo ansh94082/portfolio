@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router';
-import './Components/Navbar.css'
+import './components/Navbar.css'
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Skills from './components/Skills';
