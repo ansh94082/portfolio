@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className='flex justify-between block md:hidden'>
 
           <ul className="nav-links">
-            <li><Link to="/">Ansh</Link></li>
+            <li><Link to="/">Me</Link></li>
           </ul>
 
           <img className='hamburgersvgcss' src={Hamburgersvg} onClick={toggleClick} alt="hamburger" />
