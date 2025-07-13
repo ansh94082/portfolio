@@ -62,7 +62,7 @@ const About = () => {
             <br />
             <li className='text-white text-base font-mono '>Linux-Ricing</li>
             <br />
-            <li className='text-white text-base font-mono '>Machine-Learning</li>
+
           </ul>
         </div>
       </div>
