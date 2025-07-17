@@ -43,10 +43,10 @@ const Contact = () => {
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 w-full max-w-md"
       >
-        {/* Required hidden input for Netlify */}
+        
         <input type="hidden" name="form-name" value="contact" />
 
-        {/* Honeypot field for bots */}
+        
         <p className="hidden">
           <label>
             Don’t fill this out if you’re human:
